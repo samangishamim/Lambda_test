@@ -117,8 +117,7 @@ public class LambdaUtil {
      * @return a function supplier
      */
     public static Supplier<IntUnaryOperator> nMultiplyFunctionSupplier(int n) {
-        //todo
-        return null;
+        return () -> x -> n * x;
     }
 
     /**
@@ -127,8 +126,7 @@ public class LambdaUtil {
      * @return a supplier instance
      */
     public static Supplier<Supplier<Supplier<String>>> trickyWellDoneSupplier() {
-        //todo
-        return null;
+        return () -> () -> () -> "WELL DONE";
     }
 
     /**
