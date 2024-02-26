@@ -161,6 +161,6 @@ public class LambdaUtil {
      */
     public static BiFunction<Map<String, IntUnaryOperator>, String, IntUnaryOperator> functionLoader() {
         //todo :: extra points
-        return null;
+        return (functionMap, functionName) -> functionMap.getOrDefault(functionName, IntUnaryOperator.identity());
     }
 }
