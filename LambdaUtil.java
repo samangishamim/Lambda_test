@@ -97,8 +97,7 @@ public class LambdaUtil {
      * @return binary sum operation
      */
     public static LongBinaryOperator longSumOperation() {
-        //todo
-        return null;
+        return (x, y) -> x + y;
     }
 
     /**
@@ -107,8 +106,7 @@ public class LambdaUtil {
      * @return string to int converter
      */
     public static ToIntFunction<String> stringToIntConverter() {
-        //todo
-        return null;
+        return Integer::parseInt;
     }
 
     /**
