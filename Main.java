@@ -60,18 +60,18 @@ public class Main {
 //        IntUnaryOperator abs = intFunctionToConditionalIntFunction.apply(a -> -a, a -> a < 0);
 //        System.out.println(abs.applyAsInt(-5));//5
 //
-//        BiFunction<Map<String, IntUnaryOperator>, String, IntUnaryOperator> functionLoader = LambdaUtil.functionLoader();
-//        Map<String, IntUnaryOperator> functionMap = new HashMap<>();
-//        functionMap.put("increment", x -> x + 1);
-//        functionMap.put("square", x -> x * x);
+        BiFunction<Map<String, IntUnaryOperator>, String, IntUnaryOperator> functionLoader = LambdaUtil.functionLoader();
+        Map<String, IntUnaryOperator> functionMap = new HashMap<>();
+        functionMap.put("increment", x -> x + 1);
+        functionMap.put("square", x -> x * x);
 //
-//        IntUnaryOperator incrementFunction = functionLoader.apply(functionMap, "increment");
-//        IntUnaryOperator squareFunction = functionLoader.apply(functionMap, "square");
-//        IntUnaryOperator identityFunction = functionLoader.apply(functionMap, "none");
-//
-//        System.out.println(incrementFunction.applyAsInt(4));//5
-//        System.out.println(squareFunction.applyAsInt(3));//9
-//        System.out.println(identityFunction.applyAsInt(10));//10
+        IntUnaryOperator incrementFunction = functionLoader.apply(functionMap, "increment");
+        IntUnaryOperator squareFunction = functionLoader.apply(functionMap, "square");
+        IntUnaryOperator identityFunction = functionLoader.apply(functionMap, "none");
+
+        System.out.println(incrementFunction.applyAsInt(4));//5
+        System.out.println(squareFunction.applyAsInt(3));//9
+        System.out.println(identityFunction.applyAsInt(10));//10
     }
 
 }
