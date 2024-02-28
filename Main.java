@@ -20,12 +20,14 @@ public class Main {
 //        String tenDollarStr = toDollarStringFunction.apply(BigDecimal.TEN.setScale(2));
 //        System.out.println(tenDollarStr);//$10.00
 //
-//        Predicate<String> lengthInRangePredicate = LambdaUtil.lengthInRangePredicate(4, 8);
+//        Predicate<String> lengthInRangePredicate = LambdaUtil.lengthInRangePredicate(4,8);
 //        System.out.println(lengthInRangePredicate.test("Hello world"));//false
 //
 //        IntSupplier randomIntSupplier = LambdaUtil.randomIntSupplier();
 //        int firstValue = randomIntSupplier.getAsInt();
+//        System.out.println(firstValue);
 //        int secondValue = randomIntSupplier.getAsInt();
+//        System.out.println(secondValue);
 //        System.out.println(firstValue == secondValue);//false
 //
 //        IntUnaryOperator boundedRandomIntSupplier = LambdaUtil.boundedRandomIntSupplier();
@@ -60,18 +62,18 @@ public class Main {
 //        IntUnaryOperator abs = intFunctionToConditionalIntFunction.apply(a -> -a, a -> a < 0);
 //        System.out.println(abs.applyAsInt(-5));//5
 //
-        BiFunction<Map<String, IntUnaryOperator>, String, IntUnaryOperator> functionLoader = LambdaUtil.functionLoader();
-        Map<String, IntUnaryOperator> functionMap = new HashMap<>();
-        functionMap.put("increment", x -> x + 1);
-        functionMap.put("square", x -> x * x);
+//        BiFunction<Map<String, IntUnaryOperator>, String, IntUnaryOperator> functionLoader = LambdaUtil.functionLoader();
+//        Map<String, IntUnaryOperator> functionMap = new HashMap<>();
+//        functionMap.put("increment", x -> x + 1);
+//        functionMap.put("square", x -> x * x);
+////
+//        IntUnaryOperator incrementFunction = functionLoader.apply(functionMap, "increment");
+//        IntUnaryOperator squareFunction = functionLoader.apply(functionMap, "square");
+//        IntUnaryOperator identityFunction = functionLoader.apply(functionMap, "none");
 //
-        IntUnaryOperator incrementFunction = functionLoader.apply(functionMap, "increment");
-        IntUnaryOperator squareFunction = functionLoader.apply(functionMap, "square");
-        IntUnaryOperator identityFunction = functionLoader.apply(functionMap, "none");
-
-        System.out.println(incrementFunction.applyAsInt(4));//5
-        System.out.println(squareFunction.applyAsInt(3));//9
-        System.out.println(identityFunction.applyAsInt(10));//10
+//        System.out.println(incrementFunction.applyAsInt(4));//5
+//        System.out.println(squareFunction.applyAsInt(3));//9
+//        System.out.println(identityFunction.applyAsInt(10));//10
     }
 
 }

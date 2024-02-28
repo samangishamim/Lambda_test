@@ -23,6 +23,8 @@ public class LambdaUtil {
     public static Predicate<String> isEmptyPredicate() {
 
         return String::isEmpty;
+
+//        return (str)->str.isEmpty();
     }
 
     /**
@@ -33,7 +35,9 @@ public class LambdaUtil {
      */
     public static BiFunction<String, Integer, String> stringMultiplier() {
         //todo
-        return (str, n) -> str.repeat(n);
+        return String::repeat;
+
+//        return (str, n) -> str.repeat(n);
     }
 
     /**
@@ -67,7 +71,7 @@ public class LambdaUtil {
      */
     public static IntSupplier randomIntSupplier() {
         //todo
-        return () -> new Random().nextInt();
+        return () -> new Random().nextInt(1000);
     }
 
 
@@ -106,7 +110,7 @@ public class LambdaUtil {
      * @return string to int converter
      */
     public static ToIntFunction<String> stringToIntConverter() {
-        return Integer::parseInt;
+        return str -> Integer.parseInt(str);
     }
 
     /**
@@ -117,7 +121,7 @@ public class LambdaUtil {
      * @return a function supplier
      */
     public static Supplier<IntUnaryOperator> nMultiplyFunctionSupplier(int n) {
-        return () -> x -> n * x;
+        return () -> (x -> n * x);
     }
 
     /**
@@ -126,7 +130,11 @@ public class LambdaUtil {
      * @return a supplier instance
      */
     public static Supplier<Supplier<Supplier<String>>> trickyWellDoneSupplier() {
-        return () -> () -> () -> "WELL DONE";
+        return () -> (() -> (() -> "WELL DONE"));
+//        Supplier<String> s1 = () -> "well done";
+//        Supplier<Supplier<String>> s2 = () -> s1;
+//        Supplier<Supplier<Supplier<String>>> s3 = () -> s2;
+//        return s3;
     }
 
     /**
@@ -135,7 +143,10 @@ public class LambdaUtil {
      * @return function that composes functions with trim() function
      */
     public static UnaryOperator<Function<String, String>> composeWithTrimFunction() {
+
         return f -> f.andThen(String::trim);
+
+//        return f -> (str -> f.apply(str.trim()));
     }
 
     /**
